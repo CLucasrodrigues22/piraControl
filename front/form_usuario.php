@@ -54,11 +54,8 @@ if(empty($usuario)) {
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label" for="validationCustom03">Nome de Usuário</label>
-                                        <input type="text" class="form-control" id="validationCustom03" name="usuario" value="<?=($usuario->usuario != '' ? $usuario->usuario : '')?>" placeholder="Nome de Usuário">
-                                        <div class="invalid-feedback">
-                                            Nome de Usuário já existe.
-                                        </div>
+                                        <label class="form-label" for="validationCustom03">Usuário</label>
+                                        <input type="text" class="form-control" id="validationCustom03" value="<?=($usuario->nomeUsuario != '' ? $usuario->nomeUsuario : '')?>" placeholder="Usuário" name="nomeUsuario">
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <label class="form-label" for="validationCustom04">Email</label>

@@ -1,5 +1,5 @@
 <?php
-include_once 'includes/valida.php';
+  include_once 'includes/valida.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

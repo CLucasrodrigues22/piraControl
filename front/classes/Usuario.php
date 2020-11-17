@@ -5,7 +5,7 @@
         private $id;
         private $nome;
         private $ultimoNome;
-        private $usuario;
+        private $nomeUsuario;
         private $email;
         private $matricula;
         private $imagem;

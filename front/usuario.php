@@ -61,7 +61,7 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                             <td class="text-center"><?= $usuario->matricula ?></td>
                                             <td class="text-center"><?= $usuario->nome ?> <?= $usuario->ultimoNome ?></td>
                                             <td class="text-center"><?= $usuario->email ?></td>
-                                            <td class="text-center"><?= $usuario->usuario ?></td>
+                                            <td class="text-center"><?= $usuario->nomeUsuario ?></td>
                                             <td class="text-center">
                                                 <span class="badge badge-pill badge-primary">Administrador</span>
                                             </td>

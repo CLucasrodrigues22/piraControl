@@ -33,7 +33,6 @@
         public function alterar($id, $values) {
             $query = "UPDATE {$this->tabela} SET {$values} WHERE id = {$id}";
             $stmt = $this->db->prepare($query);
-            echo $query;
-            var_dump($stmt->execute());
+            $stmt->execute();
         }
     }

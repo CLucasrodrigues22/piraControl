@@ -34,7 +34,7 @@
 
         $usuario->__set('nome', $_POST['nome']);
         $usuario->__set('ultimoNome', $_POST['ultimoNome']);
-        $usuario->__set('usuario', $_POST['usuario']);
+        $usuario->__set('nomeUsuario', $_POST['nomeUsuario']);
         $usuario->__set('email', $_POST['email']);
         $usuario->__set('matricula', $_POST['matricula']);
         $usuario->__set('senha', md5($_POST['senha']));
@@ -84,15 +84,11 @@
         $usuario->__set('id', $_POST['id']);
         $usuario->__set('nome', $_POST['nome']);
         $usuario->__set('ultimoNome', $_POST['ultimoNome']);
+        $usuario->__set('nomeUsuario', $_POST['nomeUsuario']);
         $usuario->__set('email', $_POST['email']);
         $usuario->__set('matricula', $_POST['matricula']);
         $usuario->__set('senha', md5($_POST['senha']));
 
         $usuarioDAO->alterarUsuario($usuario);
-
-        echo '<pre>';
-        print_r($_POST);
-        print_r($_FILES);
-        echo '</pre>';
-
+        header('location: ../usuario.php?id=$id_usuario&msg=O usuario foi atualizado com sucesso');
     }

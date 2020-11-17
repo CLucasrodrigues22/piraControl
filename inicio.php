@@ -21,7 +21,7 @@
             <form action="login" method="POST">
               <div class="form-group">
                 <label for="exampleDropdownFormEmail1" class="form-label">Nome de Usuário</label>
-                <input type="text" class="form-control" id="exampleDropdownFormEmail1" name="usuario" placeholder="Usuário">
+                <input type="text" class="form-control" id="exampleDropdownFormEmail1" name="nomeUsuario" placeholder="Usuário">
               </div>
               <div class="form-group">
                 <label for="exampleDropdownFormPassword1" class="form-label">Senha</label>

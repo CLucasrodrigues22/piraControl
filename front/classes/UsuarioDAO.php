@@ -9,13 +9,13 @@
             parent::__construct();
             $this->class = 'Usuario';
             $this->tabela = 'usuario';   
-            $this->coluna = 'nome, ultimoNome, usuario, email, matricula, senha, imagem'; 
+            $this->coluna = 'nome, ultimoNome, nomeUsuario, email, matricula, senha, imagem'; 
         }
 
         public function cadastrarUsuario(Usuario $usuario) {
             $values = "'{$usuario->__get('nome')}', 
                         '{$usuario->__get('ultimoNome')}', 
-                        '{$usuario->__get('usuario')}',
+                        '{$usuario->__get('nomeUsuario')}',
                         '{$usuario->__get('email')}', 
                         '{$usuario->__get('matricula')}',
                         '{$usuario->__get('senha')}',
@@ -28,21 +28,15 @@
             if ($condicao != '') {
                 $where = " WHERE {$condicao}";
             }
-            $query = "SELECT id, nome, ultimoNome, usuario, email, matricula FROM {$this->tabela}";
+            $query = "SELECT id, nome, ultimoNome, nomeUsuario, email, matricula FROM {$this->tabela}";
             $stmt = $this->db->prepare($query);
             $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
             $stmt->execute();
             return $stmt->fetchAll();
         }
 
-        public function getLogin($nome, $senha) {
-            $query = "SELECT usuario, senha FROM {$this->tabela} WHERE usuario = :usuario AND senha = :senha";
-            $stmt = $this->db->prepare($query);
-            $stmt->bindParam(':usuario', $nome);
-            $stmt->bindParam(':senha', $senha);
-            $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
-            $stmt->execute();
-            return $stmt->fetch();
+        public function getLogin() {
+
         }
 
         public function alterarUsuario(Usuario $usuario) {
@@ -52,7 +46,7 @@
             $values = "
                 nome = '{$usuario->__get('nome')}',
                 ultimoNome = '{$usuario->__get('ultimoNome')}',
-                usuario = '{$usuario->__get('usuario')}',
+                nomeUsuario = '{$usuario->__get('nomeUsuario')}',
                 email = '{$usuario->__get('email')}',
                 matricula = '{$usuario->__get('matricula')}'
                 {$altera_senha}
