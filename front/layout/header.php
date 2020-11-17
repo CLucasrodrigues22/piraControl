@@ -1,4 +1,6 @@
-<?php require_once 'includes/valida.php'; ?>
+<?php
+include_once 'includes/valida.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

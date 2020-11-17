@@ -2,7 +2,7 @@
 
     class Usuario {
 
-        private $id_usuario;
+        private $id;
         private $nome;
         private $ultimoNome;
         private $usuario;

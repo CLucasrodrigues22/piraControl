@@ -13,6 +13,11 @@ $usuarios = $usuarioDAO->listarUsuarios();
 <div class="adminx-content">
     <div class="adminx-main-content">
         <div class="container-fluid">
+            <nav aria-label="breadcrumb" role="navigation" style="float: right;">
+              <ol class="breadcrumb adminx-page-breadcrumb">
+                <li ><a href="form_usuario" class="btn btn-lg btn-success" >Novo Usuário</a></li>
+              </ol>
+            </nav>
             <div class="pb-3">
                 <h1>Usuários</h1>
             </div>
@@ -52,7 +57,7 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                                     <span class="custom-control-indicator"></span>
                                                 </label>
                                             </th>
-                                            <td class="text-center"><?= $usuario->id_usuario ?></td>
+                                            <td class="text-center"><?= $usuario->id ?></td>
                                             <td class="text-center"><?= $usuario->matricula ?></td>
                                             <td class="text-center"><?= $usuario->nome ?> <?= $usuario->ultimoNome ?></td>
                                             <td class="text-center"><?= $usuario->email ?></td>
@@ -61,8 +66,8 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                                 <span class="badge badge-pill badge-primary">Administrador</span>
                                             </td>
                                             <td>
-                                                <button class="btn btn-sm btn-primary">Editar</button>
-                                                <button class="btn btn-sm btn-danger">Deletar</button>
+                                                <a class="btn btn-sm btn-primary" href="form_usuario?id=<?= $usuario->id ?>">Editar</a>
+                                                <a class="btn btn-sm btn-danger" href="">Deletar</a>
                                             </td>
                                         </tr>
                                     </tbody>
