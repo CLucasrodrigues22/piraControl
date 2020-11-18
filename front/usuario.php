@@ -39,11 +39,12 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                             </label>
                                         </th>
                                         <th scope="col" class="text-center">ID</th>
+                                        <!-- <th scope="col" class="text-center">Foto</th> -->
                                         <th scope="col" class="text-center">Matrícula</th>
                                         <th scope="col" class="text-center">Nome</th>
                                         <th scope="col" class="text-center">Email</th>
                                         <th scope="col" class="text-center">Usuário</th>
-                                        <th scope="col" class="text-center">Perfil</th>
+                                        <th scope="col" class="text-center">Permissão</th>
                                         <th scope="col" class="text-center">Ações</th>
                                     </tr>
                                 </thead>
@@ -58,6 +59,7 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                                 </label>
                                             </th>
                                             <td class="text-center"><?= $usuario->id ?></td>
+                                            <!-- <td class="text-center"><div class="p-2"><img src="demo/image/usuario/" class="rounded-circle" width="50"></img></div></td> -->
                                             <td class="text-center"><?= $usuario->matricula ?></td>
                                             <td class="text-center"><?= $usuario->nome ?> <?= $usuario->ultimoNome ?></td>
                                             <td class="text-center"><?= $usuario->email ?></td>

@@ -28,7 +28,7 @@
             if ($condicao != '') {
                 $where = " WHERE {$condicao}";
             }
-            $query = "SELECT id, nome, ultimoNome, nomeUsuario, email, matricula FROM {$this->tabela}";
+            $query = "SELECT id, nome, ultimoNome, nomeUsuario, email, matricula, imagem FROM {$this->tabela}";
             $stmt = $this->db->prepare($query);
             $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
             $stmt->execute();
