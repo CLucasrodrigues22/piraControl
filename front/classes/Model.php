@@ -19,6 +19,10 @@
             $query = "INSERT INTO {$this->tabela} ({$this->coluna}) VALUES ($values)";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
+            // echo '<pre>';
+            // var_dump($stmt->execute());
+            // echo $query;
+            // echo '</pre>';
             return $this->db->lastInsertId();
         }
 

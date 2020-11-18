@@ -30,7 +30,7 @@ if(empty($usuario)) {
                 <div class="col-lg-12">
                     <div class="card mb-grid">
                         <div class="card-header">
-                            <div class="card-header-title">Validation</div>
+                            <div class="card-header-title">Validação</div>
                         </div>
                         <div class="card-body">
                             <p>

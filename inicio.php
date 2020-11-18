@@ -18,7 +18,7 @@
 
         <div class="card mb-0">
           <div class="card-body">
-            <form action="login" method="POST">
+            <form action="login.php" method="post">
               <div class="form-group">
                 <label for="exampleDropdownFormEmail1" class="form-label">Nome de Usuário</label>
                 <input type="text" class="form-control" id="exampleDropdownFormEmail1" name="nomeUsuario" placeholder="Usuário">

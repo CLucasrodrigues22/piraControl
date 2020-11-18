@@ -124,17 +124,17 @@
                     <i class="fas fa-plus-circle"></i>
                   </span>
                   <span class="sidebar-nav-name">
-                    Criar Usuário
+                    Novo Usuário
                   </span>
                 </a>
               </li>
               <li class="sidebar-nav-item">
-                <a href="form_elements" class="sidebar-nav-link">
+                <a href="form_produto" class="sidebar-nav-link">
                   <span class="sidebar-nav-abbr">
-                    El
+                    <i class="fas fa-plus-circle"></i>
                   </span>
                   <span class="sidebar-nav-name">
-                    Elements
+                    Novo Produto
                   </span>
                 </a>
               </li>

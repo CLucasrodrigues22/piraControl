@@ -10,7 +10,7 @@ class Conexao
 	public function __construct() {
 		$this->host = 'mysql:host=localhost;dbname=bd_pira_control';
 		$this->user = 'root';
-		$this->password = ''; //#pira123159#
+		$this->password = '';
 	}
 
     public function conectar() {

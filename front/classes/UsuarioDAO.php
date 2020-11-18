@@ -35,7 +35,16 @@
             return $stmt->fetchAll();
         }
 
-        public function getLogin() {
+        public function getLogin($nomeUsuario, $senha) {
+            $query = "SELECT nomeUsuario, senha FROM `usuario` WHERE nomeUsuario = :nomeUsuario AND senha = :senha";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':nomeUsuario', $nomeUsuario);
+            $stmt->bindValue(':senha', $senha);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+            $stmt->execute();
+            echo $nomeUsuario;
+            echo '<br>';
+            echo $senha;
 
         }
 
