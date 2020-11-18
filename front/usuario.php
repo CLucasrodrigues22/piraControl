@@ -67,7 +67,7 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="form_usuario?id=<?= $usuario->id ?>">Editar</a>
-                                                <a class="btn btn-sm btn-danger" href="">Deletar</a>
+                                                <a class="btn btn-sm btn-danger" href="controles/controleUsuario.php?acao=deletar&id=<?= $usuario->id ?>">Deletar</a>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -35,4 +35,12 @@
             $stmt = $this->db->prepare($query);
             $stmt->execute();
         }
+        
+        public function deletar($id) { 
+            $query = "DELETE FROM {$this->tabela} WHERE id = :id"; 
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute(); 
+        }
     }
+
