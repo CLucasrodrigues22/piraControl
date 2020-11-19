@@ -19,10 +19,10 @@
             $query = "INSERT INTO {$this->tabela} ({$this->coluna}) VALUES ($values)";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
-            // echo '<pre>';
-            // var_dump($stmt->execute());
-            // echo $query;
-            // echo '</pre>';
+            echo '<pre>';
+            var_dump($stmt->execute());
+            echo $query;
+            echo '</pre>';
             return $this->db->lastInsertId();
         }
 
@@ -38,6 +38,7 @@
             $query = "UPDATE {$this->tabela} SET {$values} WHERE id = {$id}";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
+            echo $query;
         }
         
         public function deletar($id) { 

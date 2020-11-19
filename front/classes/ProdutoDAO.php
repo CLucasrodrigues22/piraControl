@@ -2,7 +2,8 @@
 
 require_once 'Model.php';
 
-class ProdutoDAO extends Model {
+class ProdutoDAO extends Model
+{
 
     public function __construct()
     {
@@ -12,15 +13,17 @@ class ProdutoDAO extends Model {
         $this->coluna = 'nomeProduto, valor, quantidade';
     }
 
-    public function cadastrarProduto(Produto $produto) {
+    public function cadastrarProduto(Produto $produto)
+    {
         $values = "'{$produto->__get('nomeProduto')}',
                     '{$produto->__get('valor')}',
-                    '{$produto->__get('quantidade')}'"; 
+                    '{$produto->__get('quantidade')}'";
 
         return $this->cadastrar($values);
     }
 
-    public function listarProduto($condicao = '') {
+    public function listarProduto($condicao = '')
+    {
         $where = '';
         if ($condicao != '') {
             $where = "WHERE {$condicao}";
@@ -32,4 +35,14 @@ class ProdutoDAO extends Model {
         return $stmt->fetchAll();
     }
 
+    public function alterarProduto(Produto $produto)
+    {
+        $values = "
+                nomeProduto = '{$produto->__get('nomeProduto')}',
+                valor = '{$produto->__get('valor')}',
+                quantidade = '{$produto->__get('quantidade')}'
+            ";
+
+        $this->alterar($produto->__get('id'), $values);
+    }
 }

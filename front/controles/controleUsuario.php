@@ -90,7 +90,7 @@ if ($acao == 'cadastrar') {
     $usuario->__set('senha', md5($_POST['senha']));
 
     $usuarioDAO->alterarUsuario($usuario);
-    header('location: ../usuario.php?id=$id_usuario&msg=O usuario foi atualizado com sucesso');
+    header('location: ../usuario.php?id=$id_usuario&msg=O usuario foi editado com sucesso');
 } else if ($acao == 'deletar') { //deletar usuario
 
     $usuarioDAO->deletar($id_usuario);

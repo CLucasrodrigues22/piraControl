@@ -139,12 +139,12 @@
                 </a>
               </li>
               <li class="sidebar-nav-item">
-                <a href="form_advanced" class="sidebar-nav-link">
+                <a href="form_categoria" class="sidebar-nav-link">
                   <span class="sidebar-nav-abbr">
-                    Ad
+                    <i class="fas fa-plus-circle"></i>
                   </span>
                   <span class="sidebar-nav-name">
-                    Advanced Elements
+                    Nova Categoria
                   </span>
                 </a>
               </li>
@@ -163,233 +163,26 @@
           </li>
 
           <li class="sidebar-nav-item">
-            <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#example" aria-expanded="false" aria-controls="example">
+            <a href="produto" class="sidebar-nav-link">
               <span class="sidebar-nav-icon">
-                <i data-feather="pie-chart"></i>
+                <i class="fas fa-box"></i>
               </span>
               <span class="sidebar-nav-name">
-                Charts
-              </span>
-              <span class="sidebar-nav-end">
-                <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+                Estoque
               </span>
             </a>
-
-            <ul class="sidebar-sub-nav collapse" id="example">
-              <li class="sidebar-nav-item">
-                <a href="charts_chartjs" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Ch
-                  </span>
-                  <span class="sidebar-nav-name">
-                    ChartJS
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="charts_morris" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Mo
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Morris
-                  </span>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <li class="sidebar-nav-item">
-            <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#navTables" aria-expanded="false" aria-controls="navTables">
+            <a href="categoria" class="sidebar-nav-link">
               <span class="sidebar-nav-icon">
-                <i data-feather="align-justify"></i>
+                <i class="fas fa-sticky-note"></i>
               </span>
               <span class="sidebar-nav-name">
-                Tables
-              </span>
-              <span class="sidebar-nav-end">
-                <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+                Categorias
               </span>
             </a>
-
-            <ul class="sidebar-sub-nav collapse" id="navTables">
-              <li class="sidebar-nav-item">
-                <a href="tables" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Re
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Regular Tables
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="tables_data" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Da
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Data Tables
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-
-          <li class="sidebar-nav-item">
-            <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#navUI" aria-expanded="false" aria-controls="navUI">
-              <span class="sidebar-nav-icon">
-                <i data-feather="grid"></i>
-              </span>
-              <span class="sidebar-nav-name">
-                UI Elements
-              </span>
-              <span class="sidebar-nav-end">
-                    <i data-feather="chevron-right" class="nav-collapse-icon"></i>
-              </span>
-            </a>
-
-            <ul class="sidebar-sub-nav collapse" id="navUI">
-              <li class="sidebar-nav-item">
-                <a href="icons" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Ic
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Icons
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="buttons" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Bu
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Buttons
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="notifications" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    No
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Notifications
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="progress" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Pr
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Progress Bars
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="tabs" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Ta
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Tabs
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="sidebar-nav-item">
-            <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#navExtra" aria-expanded="false" aria-controls="navExtra">
-              <span class="sidebar-nav-icon">
-                <i data-feather="layers"></i>
-              </span>
-              <span class="sidebar-nav-name">
-                Other Layouts
-              </span>
-              <span class="sidebar-nav-end">
-                <i data-feather="chevron-right" class="nav-collapse-icon"></i>
-              </span>
-            </a>
-
-            <ul class="sidebar-sub-nav collapse" id="navExtra">
-              <li class="sidebar-nav-item">
-                <a href="login" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Lo
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Login
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="signup" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Si
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Sign Up
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="404" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Nf
-                  </span>
-                  <span class="sidebar-nav-name">
-                    404 Error
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="500" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Is
-                  </span>
-                  <span class="sidebar-nav-name">
-                    500 Error
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="timeline" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Ti
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Timeline
-                  </span>
-                </a>
-              </li>
-
-              <li class="sidebar-nav-item">
-                <a href="invoice" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    In
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Invoice
-                  </span>
-                </a>
-              </li>
-            </ul>
           </li>
         </ul>
+
       </div><!-- Sidebar End -->

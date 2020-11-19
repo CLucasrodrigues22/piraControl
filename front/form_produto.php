@@ -3,6 +3,22 @@ include_once 'layout/header.php';
 include_once 'layout/menu.php';
 ?>
 
+<?php
+require_once 'classes/Produto.php';
+require_once 'classes/ProdutoDAO.php';
+
+$produto = new Produto();
+
+if (isset($_GET['id']) && $_GET['id'] != '') {
+    $id_produto = $_GET['id'];
+    $produtoDAO = new ProdutoDAO();
+    $produto = $produtoDAO->get('id');
+}
+if (empty($produto)) {
+    header("Location: produto.php?msg=Produto não encontrado no estoque");
+}
+
+?>
 <div class="adminx-content">
     <div class="adminx-main-content">
         <div class="container-fluid">
@@ -20,24 +36,24 @@ include_once 'layout/menu.php';
                             <p>
                                 Preencha todos os dados abaixo para a criação de um novo produto.
                             </p>
-                            <form action="controles/controleProduto.php?acao=cadastrar" method="POST">
+                            <form action="controles/controleProduto?acao=<?= ($produto->id != '' ? 'editar' : 'cadastrar') ?>" method="POST">
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
-                                        <input type="hidden" class="form-control" id="validationCustom001" name="id" value="" readonly>
+                                        <input type="hidden" class="form-control" id="validationCustom001" name="id" value="<?= ($produto->id != '' ? $produto->id : '') ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label" for="validationCustom01">Nome do Produto</label>
-                                        <input type="text" class="form-control" id="validationCustom01" name="nomeProduto" value="" placeholder="Nome do Produto">
+                                        <input type="text" class="form-control" id="validationCustom01" name="nomeProduto" value="<?= ($produto->nomeProduto != '' ? $produto->nomeProduto : '') ?>" placeholder="Nome do Produto">
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label class="form-label" for="validationCustom03">Valor</label>
-                                        <input type="text" class="form-control" id="validationCustom03" value="" placeholder="Valor" name="valor">
+                                        <input type="text" class="form-control" id="validationCustom03" value="<?= ($produto->valor != '' ? $produto->valor : '') ?>" placeholder="Valor" name="valor">
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label class="form-label" for="validationCustom04">Quantidade</label>
-                                        <input type="quantidade" class="form-control" id="validationCustom04" name="quantidade" placeholder="Quantidade">
+                                        <input type="quantidade" class="form-control" id="validationCustom04" name="quantidade" value="<?= ($produto->quantidade != '' ? $produto->quantidade : '') ?>" placeholder="Quantidade">
                                     </div>
                                 </div>
                                 <button class="btn btn-primary mr-2" type="submit">Salvar</button>

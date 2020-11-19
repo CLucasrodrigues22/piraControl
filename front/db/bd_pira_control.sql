@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2020 at 03:38 PM
+-- Generation Time: Nov 19, 2020 at 03:57 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -39,7 +39,7 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `nomeProduto`, `valor`, `quantidade`) VALUES
-(4, 'Monitor', '520.00', 1);
+(5, '', '0.00', 0);
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `usuario`
