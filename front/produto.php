@@ -15,7 +15,7 @@ $produtos = $produtoDAO->listarProduto();
         <div class="container-fluid">
             <nav aria-label="breadcrumb" role="navigation" style="float: right;">
               <ol class="breadcrumb adminx-page-breadcrumb">
-                <li ><a href="form_usuario" class="btn btn-lg btn-success" >Novo Produto</a></li>
+                <li ><a href="form_produto" class="btn btn-lg btn-success" >Novo Produto</a></li>
               </ol>
             </nav>
             <div class="pb-3">
