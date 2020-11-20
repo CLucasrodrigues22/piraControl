@@ -4,8 +4,11 @@ require_once 'layout/menu.php';
 ?>
 
 <?php
+require_once 'classes/Categoria.php';
+require_once 'classes/CategoriaDAO.php';
 require_once 'classes/Produto.php';
 require_once 'classes/ProdutoDAO.php';
+$categoriaDAO = new CategoriaDAO();
 $produtoDAO = new ProdutoDAO();
 $produtos = $produtoDAO->listarProduto();
 ?>
@@ -15,7 +18,7 @@ $produtos = $produtoDAO->listarProduto();
         <div class="container-fluid">
             <nav aria-label="breadcrumb" role="navigation" style="float: right;">
               <ol class="breadcrumb adminx-page-breadcrumb">
-                <li ><a href="form_usuario" class="btn btn-lg btn-success" >Novo Produto</a></li>
+                <li ><a href="form_produto" class="btn btn-lg btn-success" >Novo Produto</a></li>
               </ol>
             </nav>
             <div class="pb-3">
@@ -51,7 +54,9 @@ $produtos = $produtoDAO->listarProduto();
                                     </tr>
                                 </thead>
 
-                                <?php foreach ($produtos as $produto) { ?>
+                                <?php foreach ($produtos as $produto) { 
+                                    $categoria = $categoriaDAO->get($produto->nomeCategoria);     
+                                ?>
                                     <tbody>
                                         <tr>
                                             <th scope="row">
@@ -63,7 +68,7 @@ $produtos = $produtoDAO->listarProduto();
                                             <td class="text-center"><?= $produto->id ?></td>
                                             <!-- <td class="text-center"><div class="p-2"><img src="demo/image/usuario/" class="rounded-circle" width="50"></img></div></td> -->
                                             <td class="text-center"><?= $produto->nomeProduto ?></td>
-                                            <td class="text-center">Categoria</td>
+                                            <td class="text-center"><?= $categoria->nomeCategoria ?></td>
                                             <td class="text-center"><?= $produto->valor ?></td>
                                             <td class="text-center">3</td>
                                             <td class="text-center">5</td>

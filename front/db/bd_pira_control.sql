@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2020 at 03:57 PM
+-- Generation Time: Nov 20, 2020 at 03:50 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -29,17 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `produto` (
   `id` int(11) NOT NULL,
-  `nomeProduto` varchar(50) NOT NULL,
+  `nomeProduto` varchar(45) NOT NULL,
   `valor` decimal(8,2) NOT NULL,
-  `quantidade` int(11) NOT NULL DEFAULT 0
+  `quantidade` int(11) DEFAULT 0,
+  `nomeCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `produto`
 --
 
-INSERT INTO `produto` (`id`, `nomeProduto`, `valor`, `quantidade`) VALUES
-(5, '', '0.00', 0);
+INSERT INTO `produto` (`id`, `nomeProduto`, `valor`, `quantidade`, `nomeCategoria`) VALUES
+(2, 'Monitor AOC', '450.00', 2, 5),
+(3, 'Intel i3 4170', '350.00', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -63,8 +65,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nome`, `ultimoNome`, `nomeUsuario`, `email`, `matricula`, `imagem`, `senha`) VALUES
-(1, 'Lucas', 'Rodrigues Cardoso', 'lucas.cardoso', 'lucas@email.com', '026271', '', '81dc9bdb52d04dc20036dbd8313ed055'),
-(2, '', '', 'Administrador', '', '', '', '81dc9bdb52d04dc20036dbd8313ed055'),
+(1, 'Lucas', 'Rodrigues Cardoso', 'lucas.cardoso', 'lucas@email.com', '026271', '', 'd41d8cd98f00b204e9800998ecf8427e'),
 (3, 'Pedro ', 'Silva', 'psilva', 'psilva@piracicabanadf.com.br', '3387', '', 'e10adc3949ba59abbe56e057f20f883e');
 
 --
@@ -75,7 +76,8 @@ INSERT INTO `usuario` (`id`, `nome`, `ultimoNome`, `nomeUsuario`, `email`, `matr
 -- Indexes for table `produto`
 --
 ALTER TABLE `produto`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_categoria_idx` (`nomeCategoria`);
 
 --
 -- Indexes for table `usuario`
@@ -91,13 +93,23 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `produto`
+--
+ALTER TABLE `produto`
+  ADD CONSTRAINT `fk_categoria` FOREIGN KEY (`nomeCategoria`) REFERENCES `categoria` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

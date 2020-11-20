@@ -34,4 +34,13 @@ class CategoriaDAO extends Model
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function alterarCategoria(Categoria $categoria)
+    {
+        $values = "
+                nomeCategoria= '{$categoria->__get('nomeCategoria')}'
+            ";
+
+        $this->alterar($categoria->__get('id'), $values);
+    }
 }

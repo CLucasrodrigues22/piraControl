@@ -3,6 +3,21 @@ include_once 'layout/header.php';
 include_once 'layout/menu.php';
 ?>
 
+<?php
+require_once 'classes/Categoria.php';
+require_once 'classes/CategoriaDAO.php';
+
+$categoria = new Categoria();
+
+if (isset($_GET['id']) && $_GET['id'] != '') {
+    $id_categoria = $_GET['id'];
+    $categoriaDAO = new CategoriaDAO();
+    $categoria = $categoriaDAO->get('id');
+}
+if (empty($categoria)) {
+    header("Location: categoria.php?msg=");
+}
+?>
 <div class="adminx-content">
     <div class="adminx-main-content">
         <div class="container-fluid">
@@ -20,16 +35,16 @@ include_once 'layout/menu.php';
                             <p>
                                 Preencha todos os dados abaixo para a criação de uma nova categoria.
                             </p>
-                            <form action="controles/controleCategoria.php?acao=cadastrar" method="POST">
+                            <form action="controles/controleCategoria.php?acao=<?= ($categoria->id != '' ? 'editar' : 'cadastrar') ?>" method="POST">
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
-                                        <input type="hidden" class="form-control" id="validationCustom001" name="id" value="" readonly>
+                                        <input type="hidden" class="form-control" id="validationCustom001" name="id" value="<?= ($categoria->id != '' ? $categoria->id : '') ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label" for="validationCustom01">Nome da Categoria</label>
-                                        <input type="text" class="form-control" id="validationCustom01" name="nomeCategoria" value="" placeholder="Nome da Categoria">
+                                        <input type="text" class="form-control" id="validationCustom01" name="nomeCategoria" value="<?= ($categoria->nomeCategoria != '' ? $categoria->nomeCategoria : '') ?>" placeholder="Nome da Categoria">
                                     </div>
                                 </div>
                                 <button class="btn btn-primary mr-2" type="submit">Salvar</button>
