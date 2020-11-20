@@ -6,6 +6,7 @@
         private $nomeProduto;
         private $valor;
         private $quantidade;
+        private $nomeCategoria;
 
         public function __get($atributo) {
             return $this->$atributo;

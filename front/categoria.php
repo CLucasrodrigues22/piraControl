@@ -57,8 +57,8 @@ $categorias = $categoriaDAO->listaCategoria();
                                             <td><?= $categoria->id ?></td>
                                             <td><?= $categoria->nomeCategoria ?></td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary" href="">Editar</a>
-                                                <a class="btn btn-sm btn-danger" href="">Deletar</a>
+                                                <a class="btn btn-sm btn-primary" href="form_categoria.php?acao=editar&id=<?= $categoria->id ?>">Editar</a>
+                                                <a class="btn btn-sm btn-danger" href="controles/controleCategoria.php?acao=deletar&id=<?= $categoria->id ?>">Deletar</a>
                                             </td>
                                         </tr>
                                     </tbody>

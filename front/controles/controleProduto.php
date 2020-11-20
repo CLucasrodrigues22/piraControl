@@ -18,6 +18,12 @@ if ($acao == 'cadastrar') {
     $produto->__set('nomeProduto', $_POST['nomeProduto']);
     $produto->__set('valor', $_POST['valor']);
     $produto->__set('quantidade', $_POST['quantidade']);
+    $produto->__set('nomeCategoria', $_POST['nomeCategoria']);
+
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
+    // exit;
 
     $id_produto = $produtoDAO->cadastrarProduto($produto);
     $msg = "Produto cadastrado com sucesso";
@@ -29,6 +35,7 @@ if ($acao == 'cadastrar') {
     $produto->__set('nomeProduto', $_POST['nomeProduto']);
     $produto->__set('valor', $_POST['valor']);
     $produto->__set('quantidade', $_POST['quantidade']);
+    $produto->__set('nomeCategoria', $_POST['nomeCategoria']);
 
     $produtoDAO->alterarProduto($produto);
 

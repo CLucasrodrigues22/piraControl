@@ -1,0 +1,3 @@
+------>Bugs<------
+
+1 - Corrigir erro na função editar, (ao clicar em editar em qualquer um dos formulários, no form sempre pega os dados do primeiro array da lista)
