@@ -1,35 +1,33 @@
 <?php
-require_once 'layout/header.php';
-require_once 'layout/menu.php';
+include_once 'layout/header.php';
+include_once 'layout/menu.php';
 ?>
 
 <?php
-require_once 'classes/Categoria.php';
-require_once 'classes/CategoriaDAO.php';
-require_once 'classes/Produto.php';
-require_once 'classes/ProdutoDAO.php';
-$categoriaDAO = new CategoriaDAO();
-$produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->listarProduto();
+    require_once 'classes/AtivoDAO.php';
+    require_once 'classes/Ativo.php';
+
+    $ativoDAO = new AtivoDAO();
+    $ativos = $ativoDAO->listarAtivos();
 ?>
 
 <div class="adminx-content">
     <div class="adminx-main-content">
         <div class="container-fluid">
             <nav aria-label="breadcrumb" role="navigation" style="float: right;">
-              <ol class="breadcrumb adminx-page-breadcrumb">
-                <li ><a href="form_produto" class="btn btn-lg btn-success" >Novo Produto</a></li>
-              </ol>
+                <ol class="breadcrumb adminx-page-breadcrumb">
+                    <li><a href="form_ativo" class="btn btn-lg btn-success">Novo Ativo</a></li>
+                </ol>
             </nav>
             <div class="pb-3">
-                <h1>Estoque</h1>
+                <h1>Lista de Ativos</h1>
             </div>
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-grid">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <div class="card-header-title">Produtos em Estoque</div>
+                            <div class="card-header-title">Ativos Testados</div>
                         </div>
                         <div class="table-responsive-md">
                             <table class="table table-actions table-striped table-hover mb-0">
@@ -43,20 +41,17 @@ $produtos = $produtoDAO->listarProduto();
                                         </th>
                                         <th scope="col" class="text-center">ID</th>
                                         <!-- <th scope="col" class="text-center">Foto</th> -->
-                                        <th scope="col" class="text-center">Nome de Produto</th>
+                                        <th scope="col" class="text-center">Produto de Saída</th>
                                         <th scope="col" class="text-center">Categoria</th>
-                                        <th scope="col" class="text-center">Valor R$</th>
-                                        <th scope="col" class="text-center">Entrada</th>
-                                        <th scope="col" class="text-center">Saida</th>
-                                        <th scope="col" class="text-center">Em Estoque</th>
-                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Chamado GLPI</th>
+                                        <th scope="col" class="text-center">Abertura</th>
+                                        <th scope="col" class="text-center">Teste</th>
+                                        <th scope="col" class="text-center">Resultado</th>
+                                        <th scope="col" class="text-center">Ténico</th>
                                         <th scope="col" class="text-center">Ações</th>
                                     </tr>
                                 </thead>
 
-                                <?php foreach ($produtos as $produto) { 
-                                    $categoria = $categoriaDAO->get($produto->nomeCategoria);     
-                                ?>
                                     <tbody>
                                         <tr>
                                             <th scope="row">
@@ -65,22 +60,20 @@ $produtos = $produtoDAO->listarProduto();
                                                     <span class="custom-control-indicator"></span>
                                                 </label>
                                             </th>
-                                            <td class="text-center"><?= $produto->id ?></td>
-                                            <!-- <td class="text-center"><div class="p-2"><img src="demo/image/usuario/" class="rounded-circle" width="50"></img></div></td> -->
-                                            <td class="text-center"><?= $produto->nomeProduto ?></td>
-                                            <td class="text-center"><?= $categoria->nomeCategoria ?></td>
-                                            <td class="text-center"><?= $produto->valor ?></td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">5</td>
-                                            <td class="text-center"><?= $produto->quantidade ?></td>
-                                            <td class="text-center">Verde</td>
+                                            <td class="text-center">ID</td>
+                                            <td class="text-center">Produto de Saída</td>
+                                            <td class="text-center">Categoria</td>
+                                            <td class="text-center">Chamado GLPI</td>
+                                            <td class="text-center">Abertura</td>
+                                            <td class="text-center">Teste</td>
+                                            <td class="text-center">Resultado</td>
+                                            <td class="text-center">Técnico</td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="form_produto.php?id=<?= $produto->id ?>">Editar</a>
                                                 <a class="btn btn-sm btn-danger" href="controles/controleProduto.php?acao=deletar&id=<?= $produto->id ?>">Deletar</a>
                                             </td>
                                         </tr>
                                     </tbody>
-                                <?php } ?>
 
                             </table>
                         </div>
@@ -91,6 +84,7 @@ $produtos = $produtoDAO->listarProduto();
     </div>
 </div>
 
+
 <?php
-require_once 'layout/footer.php';
+include_once 'layout/footer.php';
 ?>
