@@ -18,7 +18,9 @@ if ($acao == 'cadastrar') {
     $categoria->__set('nomeCategoria', $_POST['nomeCategoria']);
 
     $id_categoria = $categoriaDAO->cadastraCategoria($categoria);
-
+    // print_r($id_categoria);
+    // print_r($_POST);
+    //  exit;
     $msg = "Categoria cadastrada com sucesso";
     header("Location: ../categoria.php?msg=$msg");
 } elseif ($acao == 'editar') {
