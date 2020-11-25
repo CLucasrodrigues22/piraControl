@@ -39,3 +39,4 @@ if ($acao == 'cadastrar') {
     $msg = "Categoria deletada com sucesso";
     header("Location: ../categoria.php?msg=$msg");
 }
+

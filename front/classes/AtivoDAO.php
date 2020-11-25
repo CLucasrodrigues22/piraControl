@@ -31,6 +31,24 @@ class AtivoDAO extends Model
         if ($condicao != '') {
             $where = " WHERE {$condicao}";
         }
-    $query = "SELECT id, nomeAtivo, chamadoGLPI, dataAbertura, dataTeste, tecnico, resultado FROM {$this->tabela}";
+        $query = "SELECT id, nomeAtivo, chamadoGLPI, dataAbertura, dataTeste, tecnico, resultado FROM {$this->tabela}";
+        $stmt = $this->db->prepare($query);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function alterarAtivo(Ativo $ativo)
+    {
+        $values = "
+            nomeAtivo = '{$ativo->__get('nomeAtivo')}',
+            chamadoGLPI = '{$ativo->__get('chamadoGLPI')}',
+            dataAbertura = '{$ativo->__get('dataAbertura')}',
+            dataTeste = '{$ativo->__get('dataTeste')}',
+            tecnico = '{$ativo->__get('tecnico')}',
+            resultado = '{$ativo->__get('resultado')}'        
+        ";
+
+        $this->alterar($ativo->__get('id'), $values);
     }
 }

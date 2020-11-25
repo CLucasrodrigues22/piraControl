@@ -4,9 +4,12 @@ include_once 'layout/menu.php';
 ?>
 
 <?php
+    require_once 'classes/Usuario.php';
+    require_once 'classes/UsuarioDAO.php';
+    $usuarioDAO = new UsuarioDAO();
+
     require_once 'classes/AtivoDAO.php';
     require_once 'classes/Ativo.php';
-
     $ativoDAO = new AtivoDAO();
     $ativos = $ativoDAO->listarAtivos();
 ?>
@@ -40,18 +43,18 @@ include_once 'layout/menu.php';
                                             </label>
                                         </th>
                                         <th scope="col" class="text-center">ID</th>
-                                        <!-- <th scope="col" class="text-center">Foto</th> -->
                                         <th scope="col" class="text-center">Produto de Saída</th>
-                                        <th scope="col" class="text-center">Categoria</th>
                                         <th scope="col" class="text-center">Chamado GLPI</th>
                                         <th scope="col" class="text-center">Abertura</th>
                                         <th scope="col" class="text-center">Teste</th>
                                         <th scope="col" class="text-center">Resultado</th>
-                                        <th scope="col" class="text-center">Ténico</th>
+                                        <th scope="col" class="text-center">Técnico</th>
                                         <th scope="col" class="text-center">Ações</th>
                                     </tr>
                                 </thead>
-
+                                <?php foreach ($ativos as $ativo ) { 
+                                    $usuario = $usuarioDAO->get($ativo->tecnico);    
+                                ?>
                                     <tbody>
                                         <tr>
                                             <th scope="row">
@@ -60,21 +63,20 @@ include_once 'layout/menu.php';
                                                     <span class="custom-control-indicator"></span>
                                                 </label>
                                             </th>
-                                            <td class="text-center">ID</td>
-                                            <td class="text-center">Produto de Saída</td>
-                                            <td class="text-center">Categoria</td>
-                                            <td class="text-center">Chamado GLPI</td>
-                                            <td class="text-center">Abertura</td>
-                                            <td class="text-center">Teste</td>
-                                            <td class="text-center">Resultado</td>
-                                            <td class="text-center">Técnico</td>
+                                            <td class="text-center"><?= $ativo->id ?></td>
+                                            <td class="text-center"><?= $ativo->nomeAtivo ?></td>
+                                            <td class="text-center"><?= $ativo->chamadoGLPI?></td>
+                                            <td class="text-center"><?= $ativo->dataAbertura ?></td>
+                                            <td class="text-center"><?= $ativo->dataTeste ?></td>
+                                            <td class="text-center"><?= ($ativo->resultado == 'testeOk' ? 'Teste Ok' : 'Falha no Teste') ?></td>
+                                            <td class="text-center"><?= $usuario->nome ?></td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary" href="form_produto.php?id=<?= $produto->id ?>">Editar</a>
-                                                <a class="btn btn-sm btn-danger" href="controles/controleProduto.php?acao=deletar&id=<?= $produto->id ?>">Deletar</a>
+                                                <a class="btn btn-sm btn-primary" href="form_ativo?acao=editar&id=<?= $ativo->id ?>">Editar</a>
+                                                <a class="btn btn-sm btn-danger" href="">Deletar</a>
                                             </td>
                                         </tr>
                                     </tbody>
-
+                                <?php } ?> 
                             </table>
                         </div>
                     </div>

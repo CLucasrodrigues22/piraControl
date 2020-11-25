@@ -7,24 +7,21 @@ include_once 'layout/menu.php';
 
 require_once 'classes/Usuario.php';
 require_once 'classes/UsuarioDAO.php';
-
 $UsuarioDAO = new UsuarioDAO();
 $usuarios = $UsuarioDAO->listarUsuarios();
 
 
 require_once 'classes/Ativo.php';
 require_once 'classes/AtivoDAO.php';
-
-// $ativo = new Ativo();
-
-// if (empty($_GET['id']) && $_GET['id'] != '') {
-//     $id_ativo = $_GET['id'];
-//     $ativoDAO = new AtivoDAO();
-//     $ativo = $ativoDAO->get('id');
-// }
-// if (empty($ativo)) {
-//     header("Location: ativo.php?msg=Produto não encontrado");
-// }
+$ativo = new Ativo();
+if (isset($_GET['id']) && $_GET['id'] != '') {
+    $id_ativo = $_GET['id'];
+    $ativoDAO =new AtivoDAO();
+    $ativo = $ativoDAO->get('id');
+}
+if (empty($ativo)) {
+    header("location: ativo?msg=Equipamento não encontrado");
+}
 ?>
 
 <div class="adminx-content">
@@ -44,28 +41,28 @@ require_once 'classes/AtivoDAO.php';
                             <p>
                                 Preencha todos os dados abaixo para a criação de um novo Ativo. Todos os dados abaixo são obrigatórios.
                             </p>
-                            <form action="controles/controleAtivo.php?acao=cadastrar" method="POST" enctype="multipart/form-data">
+                            <form action="controles/controleAtivo?acao=<?= ($ativo->id != '' ? 'editar' : 'cadastrar') ?>" method="POST" enctype="multipart/form-data">
                                 <div class="form-row">
                                     <div class="col-md-12 mb-3">
-                                        <input type="hidden" class="form-control" id="validationCustom001" name="id" value="" readonly>
+                                        <input type="hidden" class="form-control" id="validationCustom001" name="id" value="<?= ($ativo->id != '' ? $ativo->id : '') ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label" for="validationCustom01">Nome do Ativo</label>
-                                        <input type="text" class="form-control" id="validationCustom01" name="nomeAtivo" value="" placeholder="Nome do Ativo">
+                                        <input type="text" class="form-control" id="validationCustom01" name="nomeAtivo" value="<?= ($ativo->nomeAtivo != '' ? $ativo->nomeAtivo : '') ?>" placeholder="Nome do Ativo">
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label class="form-label" for="validationCustom02">Chamado GLPI</label>
-                                        <input type="text" class="form-control" id="validationCustom02" name="chamadoGLPI" value="" placeholder="ID Chamado">
+                                        <input type="text" class="form-control" id="validationCustom02" name="chamadoGLPI" value="<?= ($ativo->chamadoGLPI != '' ? $ativo->chamadoGLPI : '') ?>" placeholder="ID Chamado">
                                     </div>
                                     <div class="col-md-2 mb-3">
                                         <label class="form-label" for="validationCustom03">Data de Abertura</label>
-                                        <input type="date" class="form-control" id="validationCustom03" value="" name="dataAbertura">
+                                        <input type="date" class="form-control" id="validationCustom03" value="<?= ($ativo->dataAbertura != '' ? $ativo->dataAbertura : '') ?>" name="dataAbertura">
                                     </div>
                                     <div class="col-md-2 mb-2">
                                         <label class="form-label" for="validationCustom05">Data do Teste</label>
-                                        <input type="date" class="form-control" id="validationCustom05" name="dataTeste" value="">
+                                        <input type="date" class="form-control" id="validationCustom05" name="dataTeste" value="<?= ($ativo->dataTeste != '' ? $ativo->dataTeste : '') ?>">
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -80,11 +77,11 @@ require_once 'classes/AtivoDAO.php';
                                     <div class="col-md-2 mb-2">
                                         <label class="form-label">Resultado</label>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio1" name="resultado" class="custom-control-input" value="testeOk">
+                                            <input type="radio" id="customRadio1" name="resultado" class="custom-control-input" value="testeOk" <?= ($ativo->resultado == 'testeOk' ? 'selected="selected"' : '') ?>>
                                             <label class="custom-control-label" for="customRadio1">Teste OK</label>
                                         </div>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" id="customRadio2" name="resultado" class="custom-control-input" value="testeFall">
+                                            <input type="radio" id="customRadio2" name="resultado" class="custom-control-input" value="testeFall" <?= ($ativo->resultado == 'testeFall' ? 'selected="selected"' : '') ?>>
                                             <label class="custom-control-label" for="customRadio2">Falha no Teste</label>
                                         </div>
                                     </div>

@@ -23,8 +23,20 @@ if ($acao == 'cadastrar') {
     $ativo->__set('resultado', $_POST['resultado']);
     
     $id_ativo = $ativoDAO->cadastrarAtivo($ativo);
+    header("location: ../ativo?msg=ativo testado");
+} elseif ($acao == 'editar') {
+    
+    $ativo->__set('id', $_POST['id']);
+    $ativo->__set('nomeAtivo', $_POST['nomeAtivo']);
+    $ativo->__set('chamadoGLPI', $_POST['chamadoGLPI']);
+    $ativo->__set('dataAbertura', $_POST['dataTeste']);
+    $ativo->__set('tecnico', $_POST['tecnico']);
+    $ativo->__set('resultado', $_POST['resultado']);
 
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($_POST);
+    // echo '</pre>';
+    // exit;
+    $ativoDAO->alterarAtivo($ativo);
+    header("location: ../ativo?msg=Edição realizada com sucesso");
 }

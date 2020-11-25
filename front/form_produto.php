@@ -3,6 +3,7 @@
     include_once 'layout/menu.php';
 ?>
 
+        
 <?php
     require_once 'classes/Categoria.php';
     require_once 'classes/CategoriaDAO.php';
