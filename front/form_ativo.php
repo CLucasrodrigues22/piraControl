@@ -17,7 +17,7 @@ $ativo = new Ativo();
 if (isset($_GET['id']) && $_GET['id'] != '') {
     $id_ativo = $_GET['id'];
     $ativoDAO =new AtivoDAO();
-    $ativo = $ativoDAO->get('id');
+    $ativo = $ativoDAO->get($id_ativo);
 }
 if (empty($ativo)) {
     header("location: ativo?msg=Equipamento não encontrado");

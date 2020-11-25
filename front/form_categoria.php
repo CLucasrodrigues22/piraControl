@@ -12,7 +12,7 @@ $categoria = new Categoria();
 if (isset($_GET['id']) && $_GET['id'] != '') {
     $id_categoria = $_GET['id'];
     $categoriaDAO = new CategoriaDAO();
-    $categoria = $categoriaDAO->get('id');
+    $categoria = $categoriaDAO->get($id_categoria);
 }
 if (empty($categoria)) {
     header("Location: categoria.php?msg=");

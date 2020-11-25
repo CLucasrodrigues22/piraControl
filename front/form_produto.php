@@ -20,7 +20,7 @@
     if (isset($_GET['id']) && $_GET['id'] != '') {
         $id_produto = $_GET['id'];
         $produtoDAO = new ProdutoDAO();
-        $produto = $produtoDAO->get('id');
+        $produto = $produtoDAO->get($id_produto);
     }
     if (empty($produto)) {
         header("Location: produto.php?msg=Produto não encontrado no estoque");

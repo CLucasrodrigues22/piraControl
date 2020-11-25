@@ -12,7 +12,7 @@ $usuario = new Usuario();
 if (isset($_GET['id']) && $_GET['id'] != '') {
     $id_usuario = $_GET['id'];
     $usuarioDAO = new UsuarioDAO();
-    $usuario = $usuarioDAO->get('id');
+    $usuario = $usuarioDAO->get($id_usuario);
 }
 if (empty($usuario)) {
     header("Location: usuario.php?msg=Usuário não encontrado.");
