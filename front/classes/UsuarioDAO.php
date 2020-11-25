@@ -12,6 +12,7 @@ class UsuarioDao extends Model
         $this->tabela = 'usuario';
         $this->coluna = 'nome, ultimoNome, nomeUsuario, email, matricula, senha, imagem';
     }
+    
 
     public function cadastrarUsuario(Usuario $usuario)
     {

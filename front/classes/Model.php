@@ -38,7 +38,6 @@
             $query = "UPDATE {$this->tabela} SET {$values} WHERE id = {$id}";
             $stmt = $this->db->prepare($query);
             $stmt->execute();
-            echo $query;
         }
         
         public function deletar($id) { 

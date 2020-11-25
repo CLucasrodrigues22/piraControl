@@ -46,7 +46,7 @@ if ($acao == 'cadastrar') {
 } else if ($acao == 'editar') { //editar senha  || ($_SESSION['id_usuario'] == $_POST['id'])
     //atualização de senha
     if ($_POST['senha'] != '') {
-        $usuario->__set('senha', $_POST['senha']);
+        $usuario->__set('senha', md5($_POST['senha']));
     }
     $id_usuario = $_POST['id'];
     //upload de nova imagem
@@ -88,7 +88,7 @@ if ($acao == 'cadastrar') {
     $usuario->__set('email', $_POST['email']);
     $usuario->__set('matricula', $_POST['matricula']);
     $usuario->__set('senha', md5($_POST['senha']));
-
+    
     $usuarioDAO->alterarUsuario($usuario);
     header('location: ../usuario.php?id=$id_usuario&msg=O usuario foi editado com sucesso');
 } else if ($acao == 'deletar') { //deletar usuario
