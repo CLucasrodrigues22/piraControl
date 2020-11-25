@@ -90,7 +90,6 @@ $produtos = $produtoDAO->listarProduto();
         </div>
     </div>
 </div>
-</div>
 
 <?php
 require_once 'layout/footer.php';

@@ -2,7 +2,7 @@
 
 require_once 'Model.php';
 
-class UsuarioDao extends Model
+class UsuarioDAO extends Model
 {
 
     public function __construct()
