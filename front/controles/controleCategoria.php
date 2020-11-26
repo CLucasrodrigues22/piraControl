@@ -38,5 +38,6 @@ if ($acao == 'cadastrar') {
     $categoriaDAO->deletar($id_categoria);
     $msg = "Categoria deletada com sucesso";
     header("Location: ../categoria.php?msg=$msg");
+    
 }
 

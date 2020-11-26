@@ -30,6 +30,7 @@ $produtos = $produtoDAO->listarProduto();
                     <div class="card mb-grid">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <div class="card-header-title">Produtos em Estoque</div>
+                            <span style="float: right;">Valor em estoque: <strong>R$ 1111,00</strong></span>
                         </div>
                         <div class="table-responsive-md">
                             <table class="table table-actions table-striped table-hover mb-0">
@@ -42,7 +43,6 @@ $produtos = $produtoDAO->listarProduto();
                                             </label>
                                         </th>
                                         <th scope="col" class="text-center">ID</th>
-                                        <!-- <th scope="col" class="text-center">Foto</th> -->
                                         <th scope="col" class="text-center">Nome de Produto</th>
                                         <th scope="col" class="text-center">Categoria</th>
                                         <th scope="col" class="text-center">Valor R$</th>
@@ -58,7 +58,16 @@ $produtos = $produtoDAO->listarProduto();
                                     $categoria = $categoriaDAO->get($produto->nomeCategoria);     
                                 ?>
                                     <tbody>
-                                        <tr>
+                                        <tr 
+                                            <?php if ($produto->quantidade >= 10) {
+                                                        echo 'class="table-success"';
+                                                    } elseif ($produto->quantidade >= 5 && $produto->quantidade <= 9) {
+                                                        echo 'class="table-warning"';
+                                                    } else {
+                                                        echo 'class="table-danger"';
+                                                    }
+                                                ?>
+                                        >
                                             <th scope="row">
                                                 <label class="custom-control custom-checkbox m-0 p-0">
                                                     <input type="checkbox" class="custom-control-input table-select-row">
@@ -66,14 +75,13 @@ $produtos = $produtoDAO->listarProduto();
                                                 </label>
                                             </th>
                                             <td class="text-center"><?= $produto->id ?></td>
-                                            <!-- <td class="text-center"><div class="p-2"><img src="demo/image/usuario/" class="rounded-circle" width="50"></img></div></td> -->
                                             <td class="text-center"><?= $produto->nomeProduto ?></td>
                                             <td class="text-center"><?= $categoria->nomeCategoria ?></td>
-                                            <td class="text-center"><?= $produto->valor ?></td>
+                                            <td class="text-center">R$ <?= $produto->valor ?></td>
                                             <td class="text-center">3</td>
                                             <td class="text-center">5</td>
                                             <td class="text-center"><?= $produto->quantidade ?></td>
-                                            <td class="text-center">Verde</td>
+                                            <td class="text-center"><?= ($produto->quantidade >= 5 ? 'Estoque Alto' : 'Estoque Baixo') ?></td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="form_produto.php?id=<?= $produto->id ?>">Editar</a>
                                                 <a class="btn btn-sm btn-danger" href="controles/controleProduto.php?acao=deletar&id=<?= $produto->id ?>">Deletar</a>
@@ -81,7 +89,7 @@ $produtos = $produtoDAO->listarProduto();
                                         </tr>
                                     </tbody>
                                 <?php } ?>
-
+                                  
                             </table>
                         </div>
                     </div>

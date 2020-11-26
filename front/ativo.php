@@ -72,7 +72,7 @@ include_once 'layout/menu.php';
                                             <td class="text-center"><?= $usuario->nome ?></td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="form_ativo?acao=editar&id=<?= $ativo->id ?>">Editar</a>
-                                                <a class="btn btn-sm btn-danger" href="">Deletar</a>
+                                                <a class="btn btn-sm btn-danger" href="controles/controleAtivo?acao=deletar&id=<?= $ativo->id ?>">Deletar</a>
                                             </td>
                                         </tr>
                                     </tbody>

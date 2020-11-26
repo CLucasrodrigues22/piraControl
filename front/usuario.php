@@ -44,7 +44,6 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                         <th scope="col" class="text-center">Nome</th>
                                         <th scope="col" class="text-center">Email</th>
                                         <th scope="col" class="text-center">Usuário</th>
-                                        <th scope="col" class="text-center">Permissão</th>
                                         <th scope="col" class="text-center">Ações</th>
                                     </tr>
                                 </thead>
@@ -64,9 +63,6 @@ $usuarios = $usuarioDAO->listarUsuarios();
                                             <td class="text-center"><?= $usuario->nome ?> <?= $usuario->ultimoNome ?></td>
                                             <td class="text-center"><?= $usuario->email ?></td>
                                             <td class="text-center"><?= $usuario->nomeUsuario ?></td>
-                                            <td class="text-center">
-                                                <span class="badge badge-pill badge-primary">Administrador</span>
-                                            </td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="form_usuario?id=<?= $usuario->id ?>">Editar</a>
                                                 <a class="btn btn-sm btn-danger" href="controles/controleUsuario.php?acao=deletar&id=<?= $usuario->id ?>">Deletar</a>
