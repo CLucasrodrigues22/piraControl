@@ -60,7 +60,7 @@
                                         <input type="text" class="form-control" id="validationCustom03" value="<?= ($produto->valor != '' ? $produto->valor : '') ?>" placeholder="Valor" name="valor">
                                     </div>
                                     <div class="col-md-2 mb-3">
-                                        <label class="form-label" for="validationCustom04">Quantidade</label>
+                                        <label class="form-label" for="validationCustom04">Quantidade de Entrada</label>
                                         <input type="quantidade" class="form-control" id="validationCustom04" name="quantidade" value="<?= ($produto->quantidade != '' ? $produto->quantidade : '') ?>" placeholder="Quantidade">
                                     </div>
                                     <div class="col-md-2 mb-3">

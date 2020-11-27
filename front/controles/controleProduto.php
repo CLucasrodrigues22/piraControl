@@ -47,4 +47,10 @@ if ($acao == 'cadastrar') {
     $produtoDAO->deletar($id_produto);
     $msg = "Produto deletado com sucesso";
     header("Location: ../produto.php?msg=$msg");
+} elseif ($acao == 'adicionar') {
+
+    $produtoDAO->adicionarProduto($id_produto);
+    $msg = "Adicionado com sucesso";
+    header("Location: ../produto.php?msg=$msg");
+    
 }

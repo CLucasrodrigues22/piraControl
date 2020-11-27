@@ -10,7 +10,7 @@ class ProdutoDAO extends Model
         parent::__construct();
         $this->class = 'Produto';
         $this->tabela = 'produto';
-        $this->coluna = 'nomeProduto, valor, quantidade, nomeCategoria';
+        $this->coluna = 'nomeProduto, valor, quantidade, nomeCategoria, saida';
     }
 
     public function cadastrarProduto(Produto $produto)
@@ -29,7 +29,7 @@ class ProdutoDAO extends Model
         if ($condicao != '') {
             $where = "WHERE {$condicao}";
         }
-        $query = "SELECT id, nomeProduto, valor, quantidade, nomeCategoria FROM {$this->tabela}";
+        $query = "SELECT id, nomeProduto, valor, quantidade, nomeCategoria, saida FROM {$this->tabela}";
         $stmt = $this->db->prepare($query);
         $stmt->setFetchMode(PDO::FETCH_CLASS, $this->class);
         $stmt->execute();
@@ -46,5 +46,10 @@ class ProdutoDAO extends Model
             ";
 
         $this->alterar($produto->__get('id'), $values);
+    }
+
+    public function adicionarProduto($id)
+    {
+        
     }
 }

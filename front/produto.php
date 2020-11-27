@@ -78,13 +78,14 @@ $produtos = $produtoDAO->listarProduto();
                                             <td class="text-center"><?= $produto->nomeProduto ?></td>
                                             <td class="text-center"><?= $categoria->nomeCategoria ?></td>
                                             <td class="text-center">R$ <?= $produto->valor ?></td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-center">5</td>
                                             <td class="text-center"><?= $produto->quantidade ?></td>
+                                            <td class="text-center"><?= $produto->saida ?></td>
+                                            <td class="text-center"><?= $produto->quantidade - $produto->saida ?></td>
                                             <td class="text-center"><?= ($produto->quantidade >= 5 ? 'Estoque Alto' : 'Estoque Baixo') ?></td>
                                             <td>
                                                 <a class="btn btn-sm btn-primary" href="form_produto.php?id=<?= $produto->id ?>">Editar</a>
-                                                <a class="btn btn-sm btn-danger" href="controles/controleProduto.php?acao=deletar&id=<?= $produto->id ?>">Deletar</a>
+                                                <a class="btn btn-sm btn-success" href="controles/controleProduto?acao=adicionar&id=<?= $produto->id ?>" title="Entrada"><i class="fas fa-plus"></i></a>
+                                                <a class="btn btn-sm btn-warning" href="" title="Saída"><i class="fas fa-minus"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
