@@ -17,9 +17,9 @@ $produtos = $produtoDAO->listarProduto();
     <div class="adminx-main-content">
         <div class="container-fluid">
             <nav aria-label="breadcrumb" role="navigation" style="float: right;">
-              <ol class="breadcrumb adminx-page-breadcrumb">
-                <li ><a href="form_produto" class="btn btn-lg btn-success" >Novo Produto</a></li>
-              </ol>
+                <ol class="breadcrumb adminx-page-breadcrumb">
+                    <li><a href="form_produto" class="btn btn-lg btn-success">Novo Produto</a></li>
+                </ol>
             </nav>
             <div class="pb-3">
                 <h1>Estoque</h1>
@@ -54,20 +54,18 @@ $produtos = $produtoDAO->listarProduto();
                                     </tr>
                                 </thead>
 
-                                <?php foreach ($produtos as $produto) { 
-                                    $categoria = $categoriaDAO->get($produto->nomeCategoria);     
+                                <?php foreach ($produtos as $produto) {
+                                    $categoria = $categoriaDAO->get($produto->nomeCategoria);
                                 ?>
                                     <tbody>
-                                        <tr 
-                                            <?php if ($produto->quantidade >= 10) {
-                                                        echo 'class="table-success"';
-                                                    } elseif ($produto->quantidade >= 5 && $produto->quantidade <= 9) {
-                                                        echo 'class="table-warning"';
-                                                    } else {
-                                                        echo 'class="table-danger"';
-                                                    }
-                                                ?>
-                                        >
+                                        <tr <?php if ($produto->quantidade >= 10) {
+                                                echo 'class="table-success"';
+                                            } elseif ($produto->quantidade >= 5 && $produto->quantidade <= 9) {
+                                                echo 'class="table-warning"';
+                                            } else {
+                                                echo 'class="table-danger"';
+                                            }
+                                            ?>>
                                             <th scope="row">
                                                 <label class="custom-control custom-checkbox m-0 p-0">
                                                     <input type="checkbox" class="custom-control-input table-select-row">
@@ -90,8 +88,21 @@ $produtos = $produtoDAO->listarProduto();
                                         </tr>
                                     </tbody>
                                 <?php } ?>
-                                  
+
                             </table>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="d-flex" style="padding-left: 500px; padding-right: 500px;">
+                            <nav aria-label="Navegação de página exemplo">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">
+                                            <</a> </li> <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">></a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
